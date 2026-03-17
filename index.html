@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production Report System</title>
+
+<link rel="stylesheet" href="/storage/emulated/0/Non Woven Production Report /style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Non Woven Production Report</h2>
+
+<!-- TOP PANEL -->
+<div class="top-panel">
+
+<label>Product Code</label>
+ <input id="productCode" autocapitalize="characters" placeholder="Product Code">
+
+<label>Batch No</label>
+<input id="batchNo" type="number">
+
+<label>Color</label>
+<input id="color" type="text">
+
+<label>Date</label>
+<input id="date" type="date">
+
+<label>Shift</label>
+<input id="shift" type="text">
+
+<label>Starting Roll</label>
+<input id="startRoll" type="number">
+
+<label>Default Length</label>
+<input id="defaultLength" type="number">
+
+<label>Width</label>
+<input id="width" type="number">
+
+<label>Tare Weight</label>
+<input id="tare" type="number">
+
+</div>
+
+
+<table id="productionTable">
+
+<thead>
+<tr>
+<th>S.No</th>
+<th>Roll No.</th>
+<th >Length (m)</th>
+<th>Width (m)</th>
+<th>Gross Weight (kg)</th>
+<th>Net Weight (kg)</th>
+<th>GSM</th>
+<th>Break down</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+<tfoot>
+<tr>
+<td colspan="5">Total Net Weight</td>
+<td id="totalNet">0</td>
+<td colspan="2"></td>
+</tr>
+</tfoot>
+
+</table>
+
+ <div class="actions">
+
+<button type="button" id="addRowBtn">Add Row</button>
+<button type="button" id="uploadBtn">Upload Report</button>
+<button type="button" id="clearBtn">Clear Data</button>
+ </div>
+ 
+ 
+<a href="reports.html">View Reports</a>
+
+</div>
+
+<script src="/storage/emulated/0/Non Woven Production Report /script2.js" type="module"></script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ 
+</body>
+</html>

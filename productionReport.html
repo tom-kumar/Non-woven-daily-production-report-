@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Reports</title>
+
+</head>
+
+<body>
+
+<h2>Production Reports</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Roll</th>
+<th>Gross</th>
+<th>Net</th>
+<th>Remark</th>
+</tr>
+
+</thead>
+
+<tbody id="reportTable">
+
+</tbody>
+
+</table>
+
+<script type="module">
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"
+
+import {
+getFirestore,
+collection,
+onSnapshot
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+
+
+const firebaseConfig={
+
+apiKey:"YOUR_API_KEY",
+authDomain:"YOUR_DOMAIN",
+projectId:"YOUR_PROJECT_ID"
+
+}
+
+const app=initializeApp(firebaseConfig)
+
+const db=getFirestore(app)
+
+
+const table=document.getElementById("reportTable")
+
+onSnapshot(collection(db,"rolls"),snapshot=>{
+
+table.innerHTML=""
+
+snapshot.forEach(doc=>{
+
+let r=doc.data()
+
+let row=document.createElement("tr")
+
+row.innerHTML=`
+
+<td>${r.roll}</td>
+<td>${r.gross}</td>
+<td>${r.net}</td>
+<td>${r.remark}</td>
+
+`
+
+table.appendChild(row)
+
+})
+
+})
+
+</script>
+
+</body>
+
+</html>
